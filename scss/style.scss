@@ -1,0 +1,123 @@
+$graph-elapsed: #94C753;
+$graph-current: #F5BA61; 
+$graph-remaining: #C4C4C4;
+
+body {
+    font-family: 'Lalezar', cursive;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.tab-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+    &__item {
+        margin: 0 1px;
+        padding: 5px 10px;
+        text-transform: uppercase;
+        color: gray;
+
+        &:hover {
+            border-bottom: 4px solid transparentize($color: $graph-elapsed, $amount: 0.5);
+        }
+
+        &.active {
+            border-bottom: 4px solid $graph-elapsed;
+            color: black;
+        }
+    }
+
+        &__link {
+            text-decoration: none;
+            color: inherit;
+        }
+}
+
+.summary {
+    margin: 1em 0;
+    text-align: center;
+    font-size: 21px;
+
+    &__count {
+        margin-bottom: -20px;
+        font-size: 128px;
+        line-height: 1em;
+        display: block;
+    }
+
+    &__date {
+        font-size: 36px;
+        display: block;
+    }
+}
+
+.bar-chart {
+    margin: 0 auto;
+    border: 1px solid $graph-elapsed;
+    max-width: 1200px;
+    height: 25px;
+
+    &__elapsed {
+        background-color: $graph-elapsed;
+        height: 100%;
+    }
+}
+
+.graph {
+    margin: 2em auto;
+    max-width: 1200px;
+    display: grid;
+    grid-template-columns: repeat(12, 8.33fr); /* 12 columns */
+
+    &__month {
+        margin: 1em 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-shrink: 1;
+        flex-grow: 1;
+        position: relative;
+
+        &::before {
+            content: attr(title);
+            display: block;
+            position: absolute;
+            top: -1.5em;
+            visibility: hidden;
+        }
+
+        &:hover {
+            &::before {
+                visibility: visible;
+            }
+        }
+    }
+
+    &__week {
+        border: 1px solid $graph-remaining;
+        width: 5px;
+        height: 15px;
+        display: block;
+        border-radius: 5px;
+
+        & + & {
+            margin-left: 10px;
+        }
+
+        &--elapsed {
+            border: none;
+            background-color: $graph-elapsed;
+        }
+
+        &--current {
+            border: none;
+            background-color: $graph-current;
+        }
+    }
+}
