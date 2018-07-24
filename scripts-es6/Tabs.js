@@ -91,7 +91,7 @@ var Tabs = function () {
       var summary = countdown.getSummary();
       $(this.cssSelectors.summaryCount).text(summary.remainingWeekends);
       $(this.cssSelectors.summaryDate).text(summary.endDate);
-      $(this.cssSelectors.barChartElapsed).width(Math.round(100 * summary.remainingWeekends / summary.totalWeekends) + '%');
+      $(this.cssSelectors.barChartElapsed).width(Math.round(100 * (summary.totalWeekends - summary.remainingWeekends) / summary.totalWeekends) + '%');
 
       $(this.cssSelectors.graph).html(countdown.getGraphHtml());
 
