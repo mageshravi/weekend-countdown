@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Goal countdown</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/style.css" />
+    <script src="js/jquery.slim.min.js"></script>
+    <script src="js/app.min.js"></script>
+</head>
+<body>
+    <nav>
+        <ul class="tab-list">
+            <li class="tab-list__item active">
+                <a class="tab-list__link" href="#end-of-year" data-start="01-01-2018" data-end="31-12-2018">Loading</a>
+            </li>
+        </ul>
+    </nav>
+    <main>
+        <div class="summary">
+            <span class="summary__count">0</span>
+            <span>weekends until</span>
+            <span class="summary__date">...</span>
+        </div>
+        <div class="bar-chart">
+            <div class="bar-chart__elapsed"></div>
+        </div>
+        <div class="graph">
+            
+        </div>
+    </main>
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lalezar" rel="stylesheet">
+    <script type="text/javascript">
+        var tabsData = [
+            {
+                name: 'This year',
+                startDate: '2018-01-01',
+                endDate: '2018-12-31'
+            },
+            {
+                name: 'Project',
+                startDate: '2016-10-14',
+                endDate: '2019-10-14'
+            },
+            {
+                name: 'Lifetime',
+                startDate: '1987-11-14',
+                endDate: '2047-11-14'
+            }
+        ];
+
+        var $ul = $('.tab-list')
+        var tabs = new Tabs($ul, tabsData)
+    </script>
+</body>
+</html>
